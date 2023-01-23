@@ -27,7 +27,7 @@ On my computer, the project is located in:
 **C:\Users\Robert\IdeaProjects\UnitTests** 
 
 
-Open the console by typing cmd at the command line.
+Open the console by typing **cmd** at the command line.
 
 ![Capture](https://user-images.githubusercontent.com/116492421/214130826-bc430fa8-3fbc-4af2-8187-af942a522b50.PNG)
 
