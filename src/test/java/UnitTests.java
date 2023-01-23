@@ -1,16 +1,21 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UnitTests {
+    private Main object;
 
-    // test start for startWord method
-    //positive
+    @BeforeEach
+    public void createMain() {
+        object = new Main();
+    }
+
     @Test
-    public void theWordHipEqualsTheFirstThreeLettersOfTheString() {
+    public void testStartWordIfWordIsHip() {
         //given
-        Main object = new Main();
+
         String inputString = "hippo";
         String inputWord = "hip";
 
@@ -20,15 +25,13 @@ class UnitTests {
         //then
         Assertions.assertEquals(inputWord, stringResult);
 
-        //positive
 
     }
 
-    //positive
+
     @Test
-    public void theWordXipEqualsTheFirstThreeLettersOfTheString() {
+    public void testStartWordIfWordIsXip() {
         //given
-        Main object = new Main();
         String inputString = "hippo";
         String inputWord = "xip";
 
@@ -39,11 +42,10 @@ class UnitTests {
         Assertions.assertEquals(inputString.substring(0, inputWord.length()), stringResult);
     }
 
-    //negative
+
     @Test
-    public void theLengthOfTheWordIsLongerThanTheLengthOfTheString() {
+    public void testStartWordIfWordLengthIsLongerThanLengthString() {
         //given
-        Main object = new Main();
         String inputString = "hippo";
         String inputWord = "hippokos";
 
@@ -54,11 +56,10 @@ class UnitTests {
         Assertions.assertEquals("", stringResult);
     }
 
-    //negative
+
     @Test
-    public void theWordIsNullOrTheStringIsNullEqualsNull() {
+    public void testStartWordIfStringIsNull() {
         //given
-        Main object = new Main();
         String inputString = null;
         String inputWord = "xip";
 
@@ -69,15 +70,10 @@ class UnitTests {
         Assertions.assertNull(stringResult);
     }
 
-    // end of testing for startWord method
 
-
-    // test start for makeAbba method
-    //positive
     @Test
-    public void theWordAPlusTheWordBYieldsTheWordADoubleWordBAndA() {
+    public void testMakeAbbaIfStringAIsAAndStringBIsB() {
         //given
-        Main object = new Main();
         String aInput = "a";
         String bInput = "b";
 
@@ -89,11 +85,10 @@ class UnitTests {
         Assertions.assertEquals(aInput + bInput + bInput + aInput, result);
     }
 
-    //positive
+
     @Test
-    public void helloPlusBEqualsHelloBBHello() {
+    public void testMakeAbbaIfStringAIsHelloAndStringBIsB() {
         //given
-        Main object = new Main();
         String helloInput = "Hello";
         String bInput = "b";
 
@@ -105,11 +100,10 @@ class UnitTests {
         assertEquals("HellobbHello", result);
     }
 
-    //negative
+
     @Test
-    public void aStringIsNull() {
+    public void testMakeAbbaIfStringAIsNull() {
         //given
-        Main object = new Main();
         String aInput = null;
         String bInput = "b";
 
@@ -121,11 +115,10 @@ class UnitTests {
         assertNull(result);
     }
 
-    //negative
+
     @Test
-    public void bStringIsNull() {
+    public void testMakeAbbaIfStringBIsNull() {
         //given
-        Main object = new Main();
         String aInput = "a";
         String bInput = null;
 
@@ -136,15 +129,11 @@ class UnitTests {
         //then
         assertNull(result);
     }
-    // end of testing for makeAbba method
 
-    // test start for withoutX method
 
-    //positive
     @Test
-    public void theStringXHiXBecomesStringHi() {
+    public void testWithoutXIfStringIsXhix() {
         //given
-        Main object = new Main();
         String inputString = "xhix";
 
         //when
@@ -156,11 +145,9 @@ class UnitTests {
 
     }
 
-    //positive
     @Test
-    public void theSecondLetterInputStringIsEquatesToFirstLetterInStringResult() {
+    public void testWithoutXIfStringIsXhixAndSecondLetterInputStringEquatesFirstLetterOutputString() {
         //given
-        Main object = new Main();
         String inputString = "xhix";
 
         //when
@@ -172,11 +159,10 @@ class UnitTests {
 
     }
 
-    //negative
+
     @Test
-    public void ifStringInputIsNullStringResultEquatesNullAsWell() {
+    public void testWithoutXIfStringIsNull() {
         //given
-        Main object = new Main();
         String inputString = null;
 
         //when
@@ -188,11 +174,10 @@ class UnitTests {
 
     }
 
-    //negative
+
     @Test
-    public void ifStringInputLengthIsLessThanOneStringResultEquatesNull() {
+    public void testWithoutXIfStringIsEmpty() {
         //given
-        Main object = new Main();
         String inputString = "";
 
         //when
@@ -203,14 +188,10 @@ class UnitTests {
 
 
     }
-    // end of testing for withoutX method
 
-    // test start for has22 method
-    //positive
     @Test
-    public void array1223ReturnTrue() {
+    public void testHas22IfArrayIs1223() {
         //given
-        Main object = new Main();
         int[] inputArray = {1, 2, 2, 3};
 
         //when
@@ -220,12 +201,11 @@ class UnitTests {
         assertTrue(conditionResult);
     }
 
-    //positive
+
     @Test
-    public void array12323ReturnFalse() {
+    public void testHas22IfArrayIs12323() {
         //given
-        Main object = new Main();
-        int[] inputArray = {1, 2,3, 2, 3};
+        int[] inputArray = {1, 2, 3, 2, 3};
 
         //when
         boolean conditionResult = object.has22(inputArray);
@@ -234,11 +214,9 @@ class UnitTests {
         assertFalse(conditionResult);
     }
 
-    //negative
     @Test
-    public void ifInputArrayLengthOneReturnFalse() {
+    public void testHas22IfArrayIs2() {
         //given
-        Main object = new Main();
         int[] inputArray = {2};
 
         //when
@@ -247,11 +225,11 @@ class UnitTests {
         //then
         assertFalse(conditionResult);
     }
-    //negative
+
+
     @Test
-    public void emptyInputArrayReturnFalse() {
+    public void testHas22IfArrayIsEmpty() {
         //given
-        Main object = new Main();
         int[] inputArray = {};
 
         //when
@@ -260,15 +238,11 @@ class UnitTests {
         //then
         assertFalse(conditionResult);
     }
-    // end of testing for has22 method
 
-    // test start for more14 method
-    //positive
     @Test
-    public void ifInputArrayIs1114MethodReturnTrue(){
+    public void testMore14IfArrayIs1114() {
         //given
-        Main object = new Main();
-        int[] arrayInput = {1,1,1,4};
+        int[] arrayInput = {1, 1, 1, 4};
 
         //when
         boolean methodResult = object.more14(arrayInput);
@@ -278,12 +252,11 @@ class UnitTests {
 
     }
 
-    //positive
+
     @Test
-    public void ifInputArrayIs1444MethodReturnFalse(){
+    public void testMore14IfArrayIs1444() {
         //given
-        Main object = new Main();
-        int[] arrayInput = {1,4,4,4};
+        int[] arrayInput = {1, 4, 4, 4};
 
         //when
         boolean methodResult = object.more14(arrayInput);
@@ -293,11 +266,10 @@ class UnitTests {
 
     }
 
-    //negative
+
     @Test
-    public void ifInputArrayIsEmptyReturnFalse(){
+    public void testMore14IfArrayIsEmpty() {
         //given
-        Main object = new Main();
         int[] arrayInput = {};
 
         //when
@@ -307,6 +279,6 @@ class UnitTests {
         assertFalse(methodResult);
 
     }
-    // end of testing for more14 method
+
 }
 

@@ -1,4 +1,6 @@
 public class Main {
+
+
     public String startWord(String str, String word) {
         if (word == null || str == null) {
             return null;
@@ -67,11 +69,11 @@ public class Main {
             return false;
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 1) {
+        for (int num : nums) {
+            if (num == 1) {
                 numberOfOne++;
             }
-            if (nums[i] == 4) {
+            if (num == 4) {
                 numberOfFour++;
             }
 
